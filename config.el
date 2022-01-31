@@ -48,6 +48,10 @@
 (global-set-key (kbd "C-j") (lambda () (interactive) (evil-next-line 5)))
 (global-set-key (kbd "C-k") (lambda () (interactive) (evil-previous-line 5)))
 
+;; Map £ and $
+(global-set-key (kbd "C-3") (lambda () (interactive) (evil-beginning-of-line)))
+(global-set-key (kbd "C-4") (lambda () (interactive) (evil-end-of-line)))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
