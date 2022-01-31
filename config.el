@@ -37,7 +37,16 @@
 
 (setq display-line-numbers-type 'relative)
 
+;; Set splitright and splitbelow
+(setq evil-vsplit-window-right t
+      evil-split-window-below t)
+
+;; Add nasm
 (add-to-list 'auto-mode-alist '("\\.nasm\\'" . nasm-mode))
+
+;; Map Ctrl j and k
+(global-set-key (kbd "C-j") (lambda () (interactive) (evil-next-line 5)))
+(global-set-key (kbd "C-k") (lambda () (interactive) (evil-previous-line 5)))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
