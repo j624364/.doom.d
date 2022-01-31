@@ -52,6 +52,9 @@
 (global-set-key (kbd "C-3") (lambda () (interactive) (evil-beginning-of-line)))
 (global-set-key (kbd "C-4") (lambda () (interactive) (evil-end-of-line)))
 
+;; Disable mouse scrolling acceleration
+(setq mouse-wheel-progressive-speed nil)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
