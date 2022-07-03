@@ -3,83 +3,83 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-(setq exwm-input-global-keys
-      `(([?\s-r] . exwm-reset)
-
-        ;; Basic splitting
-        ([?\s-v] . evil-window-vsplit)
-        ([?\s-z] . evil-window-split)
-
-        ;; Essential programs
-        ([?\s-d] . dmenu)
-        ([?\s-W] . exwm-workspace-swap)
-
-        ;; Killing buffers and windows
-        ([?\s-b] . ibuffer)
-        ([?\s-B] . kill-current-buffer)
-        ([?\s-Q] . +workspace/close-window-or-workspace)
-
-        ;; Change window focus with super+hjkl
-        ([?\s-h] . evil-window-left)
-        ([?\s-j] . evil-window-next)
-        ([?\s-k] . evil-window-prev)
-        ([?\s-l] . evil-window-right)
-
-        ;; Move window focus with super+shift+hjkl
-        ([?\s-H] . +evil/window-move-left)
-        ([?\s-J] . +evil/window-move-down)
-        ([?\s-K] . +evil/window-move-up)
-        ([?\s-L] . +evil/window-move-right)
-
-        ;; Managing workspaces
-        ([?\s-w] . exwm-workspace-switch)
-        ([?\s-W] . exwm-workspace-swap)
-        ([?\s-\C-w] . exwm-workspace-move)
-
-        ([?\s-f] . exwm-floating-toggle-floating)
-        ([?\s-m] . exwm-layout-toggle-mode-line)
-        ([f11] . exwm-layout-toggle-fullscreen)
-
-        ;; Switch to workspace
-        ([?\s-0] . (lambda () (interactive) (exwm-workspace-switch-create 0)))
-        ([?\s-1] . (lambda () (interactive) (exwm-workspace-switch-create 1)))
-        ([?\s-2] . (lambda () (interactive) (exwm-workspace-switch-create 2)))
-        ([?\s-3] . (lambda () (interactive) (exwm-workspace-switch-create 3)))
-        ([?\s-4] . (lambda () (interactive) (exwm-workspace-switch-create 4)))
-        ([?\s-5] . (lambda () (interactive) (exwm-workspace-switch-create 5)))
-        ([?\s-6] . (lambda () (interactive) (exwm-workspace-switch-create 6)))
-        ([?\s-7] . (lambda () (interactive) (exwm-workspace-switch-create 7)))
-        ([?\s-8] . (lambda () (interactive) (exwm-workspace-switch-create 8)))
-        ([?\s-9] . (lambda () (interactive) (exwm-workspace-switch-create 9)))
-
-        ;; Move window to workspace
-        ([?\s-\)] . (lambda () (interactive) (exwm-workspace-switch-create 0)))
-        ([?\s-!] . (lambda () (interactive) (exwm-workspace-switch-create 1)))
-        ([?\s-\"] . (lambda () (interactive) (exwm-workspace-switch-create 2)))
-        ([?\s-£] . (lambda () (interactive) (exwm-workspace-switch-create 3)))
-        ([?\s-$] . (lambda () (interactive) (exwm-workspace-switch-create 4)))
-        ([?\s-%] . (lambda () (interactive) (exwm-workspace-switch-create 5)))
-        ([?\s-^] . (lambda () (interactive) (exwm-workspace-switch-create 6)))
-        ([?\s-&] . (lambda () (interactive) (exwm-workspace-switch-create 7)))
-        ([?\s-\*] . (lambda () (interactive) (exwm-workspace-switch-create 8)))
-        ([?\s-\(] . (lambda () (interactive) (exwm-workspace-switch-create 9)))
-        ))
-
-(require 'exwm)
-(require 'exwm-config)
-(exwm-config-default)
-(require 'exwm-randr)
-
-(setq exwm-randr-workspace-monitor-plist '(0 "eDP"))
-(add-hook 'exwm-randr-screen-change-hook
-          (lambda ()
-            (start-process-shell-command
-             "xrandr" nil "xrandr --output eDP --mode 1920x1080 --pos 0x0 --rotate normal")))
-(exwm-randr-enable)
-(require 'exwm-systemtray)
-(exwm-systemtray-enable)
-
-(start-process-shell-command "setxkbmap" nil "startxkbmap gb")
+;; (setq exwm-input-global-keys
+;;       `(([?\s-r] . exwm-reset)
+;; 
+;;         ;; Basic splitting
+;;         ([?\s-v] . evil-window-vsplit)
+;;         ([?\s-z] . evil-window-split)
+;; 
+;;         ;; Essential programs
+;;         ([?\s-d] . dmenu)
+;;         ([?\s-W] . exwm-workspace-swap)
+;; 
+;;         ;; Killing buffers and windows
+;;         ([?\s-b] . ibuffer)
+;;         ([?\s-B] . kill-current-buffer)
+;;         ([?\s-Q] . +workspace/close-window-or-workspace)
+;; 
+;;         ;; Change window focus with super+hjkl
+;;         ([?\s-h] . evil-window-left)
+;;         ([?\s-j] . evil-window-next)
+;;         ([?\s-k] . evil-window-prev)
+;;         ([?\s-l] . evil-window-right)
+;; 
+;;         ;; Move window focus with super+shift+hjkl
+;;         ([?\s-H] . +evil/window-move-left)
+;;         ([?\s-J] . +evil/window-move-down)
+;;         ([?\s-K] . +evil/window-move-up)
+;;         ([?\s-L] . +evil/window-move-right)
+;; 
+;;         ;; Managing workspaces
+;;         ([?\s-w] . exwm-workspace-switch)
+;;         ([?\s-W] . exwm-workspace-swap)
+;;         ([?\s-\C-w] . exwm-workspace-move)
+;; 
+;;         ([?\s-f] . exwm-floating-toggle-floating)
+;;         ([?\s-m] . exwm-layout-toggle-mode-line)
+;;         ([f11] . exwm-layout-toggle-fullscreen)
+;; 
+;;         ;; Switch to workspace
+;;         ([?\s-0] . (lambda () (interactive) (exwm-workspace-switch-create 0)))
+;;         ([?\s-1] . (lambda () (interactive) (exwm-workspace-switch-create 1)))
+;;         ([?\s-2] . (lambda () (interactive) (exwm-workspace-switch-create 2)))
+;;         ([?\s-3] . (lambda () (interactive) (exwm-workspace-switch-create 3)))
+;;         ([?\s-4] . (lambda () (interactive) (exwm-workspace-switch-create 4)))
+;;         ([?\s-5] . (lambda () (interactive) (exwm-workspace-switch-create 5)))
+;;         ([?\s-6] . (lambda () (interactive) (exwm-workspace-switch-create 6)))
+;;         ([?\s-7] . (lambda () (interactive) (exwm-workspace-switch-create 7)))
+;;         ([?\s-8] . (lambda () (interactive) (exwm-workspace-switch-create 8)))
+;;         ([?\s-9] . (lambda () (interactive) (exwm-workspace-switch-create 9)))
+;; 
+;;         ;; Move window to workspace
+;;         ([?\s-\)] . (lambda () (interactive) (exwm-workspace-switch-create 0)))
+;;         ([?\s-!] . (lambda () (interactive) (exwm-workspace-switch-create 1)))
+;;         ([?\s-\"] . (lambda () (interactive) (exwm-workspace-switch-create 2)))
+;;         ([?\s-£] . (lambda () (interactive) (exwm-workspace-switch-create 3)))
+;;         ([?\s-$] . (lambda () (interactive) (exwm-workspace-switch-create 4)))
+;;         ([?\s-%] . (lambda () (interactive) (exwm-workspace-switch-create 5)))
+;;         ([?\s-^] . (lambda () (interactive) (exwm-workspace-switch-create 6)))
+;;         ([?\s-&] . (lambda () (interactive) (exwm-workspace-switch-create 7)))
+;;         ([?\s-\*] . (lambda () (interactive) (exwm-workspace-switch-create 8)))
+;;         ([?\s-\(] . (lambda () (interactive) (exwm-workspace-switch-create 9)))
+;;         ))
+;; 
+;; (require 'exwm)
+;; (require 'exwm-config)
+;; (exwm-config-default)
+;; (require 'exwm-randr)
+;; 
+;; (setq exwm-randr-workspace-monitor-plist '(0 "eDP"))
+;; (add-hook 'exwm-randr-screen-change-hook
+;;           (lambda ()
+;;             (start-process-shell-command
+;;              "xrandr" nil "xrandr --output eDP --mode 1920x1080 --pos 0x0 --rotate normal")))
+;; (exwm-randr-enable)
+;; (require 'exwm-systemtray)
+;; (exwm-systemtray-enable)
+;; 
+;; (start-process-shell-command "setxkbmap" nil "startxkbmap gb")
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -128,6 +128,9 @@
 ;; Map £ and $
 (global-set-key (kbd "C-3") (lambda () (interactive) (evil-beginning-of-line)))
 (global-set-key (kbd "C-4") (lambda () (interactive) (evil-end-of-line)))
+
+(global-set-key (kbd "C-b") (lambda () (interactive) (ibuffer)))
+(global-set-key (kbd "S-B") (lambda () (interactive) (kill-current-buffer)))
 
 ;; Disable mouse scrolling acceleration
 (setq mouse-wheel-progressive-speed nil)
