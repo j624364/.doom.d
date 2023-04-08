@@ -6,7 +6,7 @@
 ;; use 'M-x doom/reload'.
 
 (package! dmenu)
-(package! exwm)
+;; (package! exwm)
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
